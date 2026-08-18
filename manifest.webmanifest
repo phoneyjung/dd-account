@@ -1,0 +1,38 @@
+{
+  "id": "/",
+  "name": "บัญชีรายจ่าย",
+  "short_name": "บัญชีรายจ่าย",
+  "description": "บันทึกรายจ่ายและทำเรื่องเบิกเงิน แยกตามกิจการ",
+  "lang": "th",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#12161A",
+  "theme_color": "#12161A",
+  "categories": ["finance", "productivity", "business"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "ลงค่าแรงลูกน้อง",
+      "short_name": "ลงค่าแรง",
+      "description": "ลงค่าแรงกะเช้าหรือกะดึกทันที",
+      "url": "./?go=wage",
+      "icons": [{ "src": "./icons/shortcut-wage.png", "sizes": "128x128", "type": "image/png" }]
+    },
+    {
+      "name": "ทำเรื่องเบิกเงิน",
+      "short_name": "ทำเบิก",
+      "description": "ดูรายการค้างเบิกและสร้างใบเบิก",
+      "url": "./?go=withdraw",
+      "icons": [{ "src": "./icons/shortcut-slip.png", "sizes": "128x128", "type": "image/png" }]
+    }
+  ]
+}

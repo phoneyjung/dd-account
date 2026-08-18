@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>บัญชีรายจ่าย</title>
+<meta name="description" content="บันทึกรายจ่ายและทำเรื่องเบิกเงิน แยกตามกิจการ">
+<meta name="theme-color" content="#12161A">
+<meta name="color-scheme" content="dark light">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/favicon.ico">
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="บัญชีรายจ่าย">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<style>
+  html,body{margin:0;padding:0;background:#12161A;overscroll-behavior-y:none;-webkit-text-size-adjust:100%}
+  #root{min-height:100vh}
+  #boot{position:fixed;inset:0;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;
+        gap:18px;background:#12161A;transition:opacity .28s ease}
+  #boot.gone{opacity:0;pointer-events:none}
+  #boot img{width:104px;height:104px;border-radius:24px;animation:bp 1.6s ease-in-out infinite}
+  #boot .n{font-family:'Chakra Petch','IBM Plex Sans Thai',system-ui,sans-serif;font-weight:700;
+           font-size:20px;color:#FFB020;letter-spacing:.02em}
+  #boot .s{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;font-size:13px;color:#5B6773}
+  #boot .h{position:absolute;left:0;right:0;bottom:0;height:4px;
+           background:repeating-linear-gradient(115deg,#FFB020 0 10px,transparent 10px 20px);opacity:.85}
+  @keyframes bp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.94);opacity:.75}}
+  @media (prefers-reduced-motion:reduce){#boot img{animation:none}}
+  noscript{display:block;padding:24px;color:#EAF1F7;font-family:system-ui,sans-serif;text-align:center}
+</style>
+</head>
+<body>
+<script>
+  try {
+    var c = JSON.parse(localStorage.getItem("acc:config") || "{}");
+    var bg = (c.ui && c.ui.theme) === "light" ? "#EEF1F5" : "#12161A";
+    document.documentElement.style.background = bg;
+    document.querySelector('meta[name=theme-color]').setAttribute("content", bg);
+  } catch (e) {}
+</script>
+
+<div id="root"></div>
+
+<div id="boot">
+  <img src="./icons/icon-192.png" alt="">
+  <div class="n">บัญชีรายจ่าย</div>
+  <div class="s">กำลังเปิด…</div>
+  <div class="h"></div>
+</div>
+
+<noscript>แอปนี้ต้องเปิดใช้งาน JavaScript ในเบราว์เซอร์ก่อนครับ</noscript>
+
+<script src="./app.js"></script>
+<script>
+  // เผื่อกรณีสุดวิสัย ไม่ให้หน้าเปิดค้างเกิน 6 วินาที
+  setTimeout(function () {
+    var b = document.getElementById("boot");
+    if (b) b.classList.add("gone");
+  }, 6000);
+</script>
+</body>
+</html>
