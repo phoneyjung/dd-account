@@ -1,4 +1,4 @@
-const V = "acc-v5";
+const V = "acc-v7";
 const SHELL = [
   "./",
   "./index.html",
